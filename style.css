@@ -32,7 +32,7 @@ input.form-control:focus {
     box-shadow: none
 }
 
-.text {
+.text, .search-result__number {
     font-size: 13px;
     color: #9CA1A4
 }
