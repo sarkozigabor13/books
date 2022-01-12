@@ -2,7 +2,7 @@
 {
     // Get search bar elements
     let searchInput = document.querySelector('.search-form__input');
-    let searchCollapse = document.querySelector('#searchHelp');
+    let searchCollapse = document.querySelector('.search-help');
 
     // Add event listener to search bar click event
     searchInput.addEventListener('click', () => {

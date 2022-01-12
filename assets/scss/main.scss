@@ -13,50 +13,79 @@ body {
     background-color: $magnolia;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 // Search box
 
 .search-box {
     display        : flex;
     justify-content: center;
     align-items    : center;
-}
 
-.search-form {
-    position  : relative;
-    margin-top: 5rem;
+    .search-form {
+        position  : relative;
+        margin-top: 5rem;
 
-    .bi-search {
-        position: absolute;
-        top     : 16px;
-        left    : 16px;
+        .bi-search {
+            position: absolute;
+            top     : 16px;
+            left    : 16px;
 
-        &::before {
-            font-weight: bold !important;
+            &::before {
+                font-weight: bold !important;
+            }
+        }
+
+        &__input {
+            height       : 55px;
+            text-indent  : 33px;
+            border-radius: 10px;
+            box-shadow   : 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+            border       : 0;
+        }
+
+        &__input:focus {
+            box-shadow: none;
+            border    : none;
+        }
+
+        &__right {
+            position   : absolute;
+            right      : 17px;
+            top        : 13px;
+            border-left: 1px solid #d1d5db;
+            padding    : 0 7px 0 10px;
         }
     }
 
-    &__input {
-        height       : 55px;
-        text-indent  : 33px;
+    .search-help {
+        max-height   : 0;
+        overflow     : hidden;
+        transition   : max-height .5s ease-out;
+        box-shadow   : 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
         border-radius: 10px;
-    }
 
-    &__input:focus {
-        box-shadow: none;
-        border    : none;
-    }
+        &__card {
+            padding   : 10px;
+            margin-top: 10px;
+            border    : 0;
+        }
 
-    &__right {
-        position   : absolute;
-        right      : 17px;
-        top        : 13px;
-        border-left: 1px solid #d1d5db;
-        padding    : 0 7px 0 10px;
-    }
-}
+        &__list {
+            padding: 10px;
+            display: flex;
+            align-items: center;
 
-.content {
-    max-height      : 0;
-    overflow        : hidden;
-    transition      : max-height .5s ease-out;
+            small {
+                color: #dedddd
+            }
+        }
+
+        &__category {
+            margin-bottom: 0;
+        }
+    }
 }
