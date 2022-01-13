@@ -1,4 +1,4 @@
-// Variables 
+// Color variables 
 $magnolia          : #eae4e9ff;
 $linen             : #fff1e6ff;
 $pale-pink         : #fde2e4ff;
@@ -9,13 +9,16 @@ $isabelline        : #f0efebff;
 $lavender-web      : #dfe7fdff;
 $periwinkle-crayola: #cddafdff;
 
+// Other variables
+$basicShadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+
 body {
     background-color: $magnolia;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color          : inherit;
 }
 
 // Search box
@@ -26,8 +29,8 @@ a {
     align-items    : center;
 
     .search-form {
-        position  : relative;
-        margin-top: 5rem;
+        position: relative;
+        margin  : 5rem 0 2.5rem;
 
         .bi-search {
             position: absolute;
@@ -65,7 +68,7 @@ a {
         max-height   : 0;
         overflow     : hidden;
         transition   : max-height .5s ease-out;
-        box-shadow   : 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+        box-shadow   : $basicShadow;
         border-radius: 10px;
 
         &__card {
@@ -75,8 +78,8 @@ a {
         }
 
         &__list {
-            padding: 10px;
-            display: flex;
+            padding    : 10px;
+            display    : flex;
             align-items: center;
 
             small {
@@ -87,5 +90,32 @@ a {
         &__category {
             margin-bottom: 0;
         }
+    }
+}
+
+.search-info {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    margin-bottom: 2.5rem;
+
+    &__col {
+        background   : white;
+        box-shadow   : $basicShadow;
+        padding      : 20px;
+        border-radius: 10px;
+    }
+}
+
+.search-result {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+    &__col {
+        background   : white;
+        box-shadow   : $basicShadow;
+        padding      : 20px;
+        border-radius: 10px;
     }
 }

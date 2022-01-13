@@ -15,7 +15,7 @@ a {
 
 .search-box .search-form {
   position: relative;
-  margin-top: 5rem;
+  margin: 5rem 0 2.5rem;
 }
 
 .search-box .search-form .bi-search {
@@ -75,5 +75,32 @@ a {
 
 .search-box .search-help__category {
   margin-bottom: 0;
+}
+
+.search-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.search-info__col {
+  background: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.search-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-result__col {
+  background: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  padding: 20px;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=main.css.map */

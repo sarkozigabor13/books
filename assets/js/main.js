@@ -28,7 +28,7 @@ fetch('https://www.googleapis.com/books/v1/volumes?q=svejk&key=AIzaSyAkvnYin1tdF
     .then(data => {
         let searchNumbers = data.totalItems;
         let searchNumbersUI = document.querySelector('.search-result__number');
-        searchNumbersUI.innerHTML = `${searchNumbers} találat erre a keresésre...`;
+        searchNumbersUI.innerHTML = `${searchNumbers} books were founded...`;
 
         console.log(searchNumbers);
     })
