@@ -27,6 +27,11 @@ a {
     display        : flex;
     justify-content: center;
     align-items    : center;
+    margin-bottom  : 2rem;  
+
+    &__col {
+        padding: 0;
+    }
 
     .search-form {
         position: relative;
@@ -97,7 +102,7 @@ a {
     display        : flex;
     justify-content: center;
     align-items    : center;
-    margin-bottom: 2.5rem;
+    margin-bottom  : 2.5rem;
 
     &__col {
         background   : white;

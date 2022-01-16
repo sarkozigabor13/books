@@ -11,6 +11,11 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-box__col {
+  padding: 0;
 }
 
 .search-box .search-form {

@@ -22,13 +22,38 @@
 }
 
 
+// Send search form 
+{
+    const searchForm = document.querySelector('.search-form');
 
-fetch('https://www.googleapis.com/books/v1/volumes?q=svejk&key=AIzaSyAkvnYin1tdFYA6D5PfQpNJpnj8yI0xjDM')
-    .then(response => response.json())
-    .then(data => {
-        let searchNumbers = data.totalItems;
-        let searchNumbersUI = document.querySelector('.search-result__number');
-        searchNumbersUI.innerHTML = `${searchNumbers} books were founded...`;
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const searchInput = e.target.elements.searchInput.value;
 
-        console.log(searchNumbers);
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=AIzaSyAkvnYin1tdFYA6D5PfQpNJpnj8yI0xjDM`)
+            .then(response => response.json())
+            .then(data => {
+
+                //Call render function
+                renderUI(data);
+            })
     })
+}
+
+// Render UI
+function renderUI(data) {
+
+    // Show founded items div
+    let searchInfo = document.querySelector('.search-info');
+    searchInfo.classList.remove('d-none');
+
+    // Show founded items number
+    let searchNumbers = data.totalItems;
+    let searchNumbersUI = document.querySelector('.search-result__number');
+    searchNumbersUI.innerHTML = `${searchNumbers} books were founded...`;
+
+    
+    console.log(data);
+}
+
+
