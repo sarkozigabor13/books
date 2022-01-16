@@ -34,7 +34,7 @@
             .then(response => response.json())
             .then(data => {
 
-                //Call render function
+                // Call render function
                 renderUI(data);
             })
     })
@@ -52,8 +52,45 @@ function renderUI(data) {
     let searchNumbersUI = document.querySelector('.search-result__number');
     searchNumbersUI.innerHTML = `${searchNumbers} books were founded...`;
 
-    
-    console.log(data);
+
+    // Creating books cards
+    let books = data.items;
+    let bookCardHtml = '';
+
+    console.log(data.items);
+
+    for (const book of books) {
+
+        let bookTitle = book.volumeInfo.title;
+        let bookAuthor = book.volumeInfo.authors;
+        let bookCategory = book.volumeInfo.categories === undefined ? "Ismeretlen" : book.volumeInfo.categories;book.volumeInfo.categories;
+        let smallThumbnail = book.volumeInfo.readingModes.image === true ? book.volumeInfo.imageLinks.smallThumbnail : "./assets/img/missing_photo.png";       
+
+        console.log(bookCategory);
+         bookCardHtml += `
+        <div class="col-md-6 d-block search-result__col">
+            <div class="row">
+                <div class="col-8">
+                    <p class="mb-1">${bookTitle}</p>
+                    <p class="mb-1"><small class="text-muted">Author: ${bookAuthor}</small></p>
+                    <p class="mb-1"><small class="text-muted">Category: ${bookCategory}</small></p>
+                    <div class="search-result__action">
+                        <button class="btn btn-primary">Bővebb információ</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img src="${smallThumbnail}"
+                        class="img-fluid search-result__img" alt="svejk">
+                </div>
+            </div>
+        </div>
+        `
+    };
+
+    document.querySelector('.search-result').innerHTML = bookCardHtml;
+
+
+
 }
 
 
