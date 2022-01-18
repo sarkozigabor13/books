@@ -26,7 +26,7 @@ let searchFetch = (e) => {
 
     e.preventDefault();
     const searchInput = e.target.elements.searchInput.value;
-
+    
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=AIzaSyAkvnYin1tdFYA6D5PfQpNJpnj8yI0xjDM`)
         .then(response => response.json())
         .then(data => {
@@ -45,11 +45,37 @@ let searchFetch = (e) => {
 // Apply filters 
 {
     let applyBtn = document.querySelector('.btn-filter-apply');
-    applyBtn.addEventListener('click', () => {
+    applyBtn.addEventListener('click', (e) => {
 
         let filterFree = document.querySelector('#filterPriceFree');
         let filterPaid = document.querySelector('#filterPricePaid');
         console.log(filterFree.checked, filterPaid.checked);
+
+        e.preventDefault();
+        const searchInput = document.querySelector('.search-form__input').value;
+        let searchAuthorInput = document.querySelector('.search-info__input');
+        let searchAuthor = searchAuthorInput.value === '' ? '' : '+inauthor:' + searchAuthorInput.value;
+        let filterPrice = '';
+
+        if(filterFree) {
+            filterPrice = '&filter=free-ebooks'
+        } else if (filterPaid) {
+            filterPrice = '&filter=paid-ebooks'
+        } else {
+            filterPrice = ''
+        };
+
+        var searchURL = (`https://www.googleapis.com/books/v1/volumes?q=${searchInput + searchAuthor + filterPrice}&key=AIzaSyAkvnYin1tdFYA6D5PfQpNJpnj8yI0xjDM`)
+        console.log(searchURL);
+        
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput + searchAuthor + filterPrice}&key=AIzaSyAkvnYin1tdFYA6D5PfQpNJpnj8yI0xjDM`)
+            .then(response => response.json())
+            .then(data => {
+    
+                // Call render function
+                renderUI(data);
+            })
+
     })
 }
 
