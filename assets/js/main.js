@@ -104,7 +104,9 @@ function renderUI(data) {
         let bookAuthor = book.volumeInfo.authors;
         let bookCategory = book.volumeInfo.categories === undefined ? "Ismeretlen" : book.volumeInfo.categories; book.volumeInfo.categories;
         let smallThumbnail = book.volumeInfo.readingModes.image === true ? book.volumeInfo.imageLinks.smallThumbnail : "./assets/img/missing_photo.png";
-        let bookPrice = book.saleInfo.saleability === "NOT_FOR_SALE" ? "Nem eladó" : book.saleInfo.listPrice.amount + 'HUF';
+        let bookPrice = book.saleInfo.saleability === "FOR_SALE" ? book.saleInfo.listPrice.amount : "Nem eladó";
+
+        console.log(bookPrice);
 
         console.log(bookCategory);
         bookCardHtml += `
